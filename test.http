@@ -1,0 +1,114 @@
+
+###
+GET http://localhost:4004/v2/notifications
+Authorization: Basic joe:
+###
+GET http://localhost:4004/v2/notifications/$metadata
+Authorization: Basic joe:
+###
+GET http://localhost:4004/notifications/$metadata
+Authorization: Basic joe:
+###
+GET http://localhost:4004/v2/notifications/Notifications
+###
+GET http://localhost:4004/v2/notifications/Notifications
+
+###
+GET http://localhost:4004/notifications/Notifications
+
+###
+GET http://localhost:4004/notifications/Notifications(932c4407-32a7-4423-9d69-f04a4657d8fe)
+
+
+###
+GET http://localhost:4004/v2/notifications/AffectedItems
+Authorization: Basic joe:
+
+
+###
+GET http://localhost:4004/notifications/getNotification(Id='1110f412-9d8b-428f-8bc6-6901c026f53e')
+
+
+
+###
+GET http://localhost:4004/notifications/getAfftectedItems(Id='1110f412-9d8b-428f-8bc6-6901c026f53e')
+
+
+###
+GET http://localhost:4004/notifications/getAfftectedItems(id='1110f412-9d8b-428f-8bc6-6901c026f53e')
+# content-type: application/json
+# {
+#     "Id":"1110f412-9d8b-428f-8bc6-6901c026f53e" 
+# }
+
+
+###
+POST http://localhost:4004/v2/notifications/Notifications
+Content-Type: application/json
+
+{
+  "ID": 106,
+  "status": "sent",
+  "classification": "Quality Investigation",
+  "severity": "Life-Threatening",
+  "targetDate": "/Date(1670803200000)/",
+  "receiveDate": "/Date(1670803200000)/",
+  "senderBP": "BPNL7588787849VQ",
+  "recieveBP": "BPNL6666787765VQ",
+  "coment": "life threating issue"
+}
+
+###
+GET http://localhost:4004/catalogue/MaterialSRV
+Authorization: Basic jason.zhang05@sap.com:6701xh6701xh6701XH!
+
+###
+GET http://localhost:4004/oauth/AccessToken
+
+###
+GET http://localhost:4004/notifications/getMessageHistoryItems
+content-type: application/json
+
+{   
+	"Id":"d21d6dd5-6b5c-4c3d-b9f4-b22860575014"
+}
+
+###
+GET http://localhost:4004/notifications/MessageHistoryItems(uuid='d21d6dd5-6b5c-4c3d-b9f4-b22860575014')
+
+
+
+content-type: application/json
+
+{   
+	"Id":"d21d6dd5-6b5c-4c3d-b9f4-b22860575014"
+}
+
+###
+GET http://localhost:4004/notifications/MessageHistoryItems(008d2a05-ca35-4d7c-8bd2-ecd178972c23)
+
+###
+GET http://localhost:4004/notifications/Notifications(932c4407-32a7-4423-9d69-f04a4657d8fe)/MessageHistoryItems
+
+
+###
+GET http://localhost:4004/notifications/MessageHistoryItems(008d2a05-ca35-4d7c-8bd2-ecd178972c23)?$expand=Status
+
+
+
+?$filter=ID eq 008d2a05-ca35-4d7c-8bd2-ecd178972c23
+
+
+
+
+###
+POST http://localhost:4004/notifications/getAfftectedItemsCtxProduct
+content-type: application/json
+
+{   
+	"Id":"b5b85993-a53d-4e0a-831b-07a436c9daaa"
+}
+
+
+###
+POST http://localhost:4004/notifications/getAfftectedItemsCtxProduct

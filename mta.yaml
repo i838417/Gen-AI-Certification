@@ -1,0 +1,72 @@
+_schema-version: '3.2'
+ID: genai-certification
+version: 0.0.1
+
+parameters:
+  enable-parallel-deployments: true
+
+#build-parameters:
+#  before-all:
+#    - builder: custom
+#      commands:
+#        - npm install --production
+#        - npx -p @sap/cds-dk cds build --production
+#        - npx rimraf gen/db/src/gen/data # uncomment this line to prevent loading of initial data which is only relevant for dev/test deployments 
+#        - npx rimraf gen/db/src/gen/csv  # uncomment this line unless db/csv folder has been used for config/control table data which is entirely managed by the developer and never changed by the app
+ 
+modules:
+## ---------------- DATABASE DEPLOYER MODULE ------------------
+#   - name: 
+# # ------------------------------------------------------------
+
+# ---------------- UPLOAD UI MODULE --------------------------
+  - name: app-genai-certification
+# ------------------------------------------------------------
+    type: html5
+    path: app
+    parameters:
+      disk-quota: 256M
+      memory: 128M
+    requires:
+      - name: app-uaa
+      - name: srv-api-nodejs
+        group: destinations
+        properties:
+          name: srv_dest
+          url: ~{url}
+          forwardAuthToken: true
+          timeout: 600000
+
+# ---------------- NodeJs SERVER MODULE ----------------
+  - name: srv-genai-certification
+# ------------------------------------------------------------
+    type: nodejs
+    path: srv
+    parameters:
+      disk-quota: 512M
+      memory: 256M
+    provides:
+      - name: srv-api-nodejs
+        properties:
+          url: ${default-url}
+    requires:
+      - name: app-uaa
+#      - name: GENAI-Certification-dest
+
+resources:
+# ----------------------- UAA SERVICE ------------------------
+  - name: app-uaa
+# ------------------------------------------------------------
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+
+# ------------------- destination service - iflow ------------------
+#  - name: app-dest
+# ------------------------------------------------------------
+#    type: org.cloudfoundry.managed-service
+#    parameters:
+#      service-plan: lite
+#      service: destination

@@ -1,0 +1,21 @@
+{
+    "welcomeFile": "index.html",
+    "authenticationMethod": "route",
+    "routes": [
+        {
+            "source": "^/srv/(.*)$",
+            "authenticationType": "xsuaa",
+            "scope": "$XSAPPNAME.CertificateAppUser",
+            "destination": "srv_dest",
+            "csrfProtection": false
+          },
+          {
+            "source": "(.*)",
+            "authenticationType": "xsuaa",
+            "scope": "$XSAPPNAME.CertificateAppUser",
+            "localDir": "webapp",
+            "csrfProtection": false,
+            "cacheControl": "no-cache, no-store, must-revalidate"
+          }
+    ]
+}

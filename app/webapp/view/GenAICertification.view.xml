@@ -1,0 +1,42 @@
+<mvc:View controllerName="com.sap.certificatedataupload.controller.GenAICertification"
+    class="sapUiSizeCompact"
+    displayBlock="true"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m">
+    <Shell id="shell" appWidthLimited="false">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+                        <IconTabBar id="iconTabBar" expanded="true" class="sapUiResponsiveContentPadding">
+                            <items>
+                                <IconTabFilter icon="sap-icon://upload" text="{i18n>upload.IconTab.Text}" key="Upload">
+                                    <Panel headerText="{i18n>upload.Panel.HeaderText}" width="auto" class="sapUiResponsiveMargin">
+                                        <l:VerticalLayout class="sapUiLargeMarginBegin">                               
+                                            <u:FileUploader id="fileUploader" name="fileUpload" tooltip="{i18n>upload.FileUploader.Tooltip}" icon="sap-icon://browse-folder"  
+                                                fileType = "pdf" placeholder="{i18n>upload.FileUploader.PlaceHolder}" 
+                                                uploadComplete="onUploadComplete" typeMissmatch="handleTypeMissmatch"
+                                                style="Emphasized"/>
+                                            <Button id="uploadButton" text="{i18n>upload.Button.Text}" icon="sap-icon://upload" type="Emphasized" press="onPressUpload"/>
+                                            <MessageStrip text="{i18n>upload.MessageStrip.Text}" showIcon="true" class="sapUiSmallMarginTop"></MessageStrip>
+                                        </l:VerticalLayout>
+                                    </Panel>
+                                </IconTabFilter>
+                                <IconTabFilter icon="sap-icon://download" text="{i18n>download.IconTab.Text}" key="download">
+                                    <Panel headerText="{i18n>download.Panel.HeaderText}" width="auto" class="sapUiResponsiveMargin">
+                                        <l:VerticalLayout class="sapUiLargeMarginBegin">
+                                            <TextArea id="resultArea" height="430px" width="800px" editable="false" value="" class="sapUiSmallMarginTop" />
+                                        </l:VerticalLayout>
+                                    </Panel>
+                                </IconTabFilter>
+                            </items>
+                        </IconTabBar>
+                        
+                    </content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

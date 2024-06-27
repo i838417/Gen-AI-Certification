@@ -1,0 +1,28 @@
+{
+  "xsappname": "app",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.CertificateAppUser",
+      "description": "CertificateAppUser"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "CertificateAppUser",
+      "description": "CertificateAppUser",
+      "scope-references": [
+        "$XSAPPNAME.CertificateAppUser"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "app_CertificateAppUser",
+      "description": "app CertificateAppUser",
+      "role-template-references": [
+        "$XSAPPNAME.CertificateAppUser"
+      ]
+    }
+  ]
+}

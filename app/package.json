@@ -1,0 +1,10 @@
+{
+    "name": "app-genai-certification",
+    "dependencies": {
+        "@sap/approuter": "latest",
+        "tough-cookie": "^4.1.2"
+    },
+    "scripts": {
+        "start": "node node_modules/@sap/approuter/approuter.js"
+    }
+}

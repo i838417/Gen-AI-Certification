@@ -1,0 +1,37 @@
+{
+    "name": "srv-nodejs",
+    "engines": {
+        "node": "18.x"
+    },
+    "dependencies": {
+        "@sap-cloud-sdk/http-client": "^2.14.0",
+        "@sap/xsenv": "latest",
+        "@sap/xssec": "3.2.15",
+        "axios": "^0.27.2",
+        "body-parser": "latest",
+        "cfenv": "^1.2.4",
+        "chai": "4.3.7",
+        "cors": "^2.8.5",
+        "csvtojson": "^2.0.10",
+        "express": "latest",
+        "formidable": "^2.1.1",
+        "fs": "^0.0.1-security",
+        "mocha": "10.2.0",
+        "mock-req": "^0.2.0",
+        "mock-req-res": "^1.2.1",
+        "mock-res": "^0.6.0",
+        "mqtt": "^4.3.7",
+        "passport": "latest",
+        "path": "^0.12.7",
+        "pdf-parse": "^1.1.1",
+        "sap-cf-axios": "^0.3.6",
+        "serialize-javascript": "^6.0.1",
+        "sinon": "15.0.1",
+        "uuid": "^8.3.2",
+        "winston": "^3.6.0",
+        "xlsx": "^0.18.5"
+    },
+    "scripts": {
+        "start": "node GenAICertificationAppService.js"
+    }
+}
